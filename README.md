@@ -36,7 +36,7 @@ printforge/
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js >=22.23.4 and <23 (see `.nvmrc` and `.node-version`)
 - pnpm 8+
 - Docker (for local development)
 
@@ -172,6 +172,12 @@ NEXT_PUBLIC_API_URL=http://localhost:3001
 ```
 
 ## Deployment
+
+Production must run Node.js **>=22.23.4 and <23**. Node.js 20 is end of life and is not patched for the 21 October 2026 security release. Docker images pin `node:22.23.4-alpine`.
+
+- **Vercel** (admin): `engines.node` is `>=22.23.4 <23`, which selects the 22.x runtime. An open `>=22` range deploys Node.js 24, the current default. Set **Settings → Build and Deployment → Node.js Version** to **22.x** so it matches `engines` (`engines` overrides the dashboard and warns when they differ). Vercel ships a major, not a patch — confirm the 22.x image is 22.23.4 or newer.
+- **Render** (API): if the service environment sets `NODE_VERSION` to 20 or older, change it to `22.23.4`. Render does not read `.nvmrc`.
+- **Fly.io**: the runtime comes from the Dockerfiles above. There is no `fly.toml` in this repo.
 
 ### Using Render
 
