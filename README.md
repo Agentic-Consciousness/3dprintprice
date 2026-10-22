@@ -36,7 +36,7 @@ printforge/
 
 ### Prerequisites
 
-- Node.js >=22.23.4 and <23 (see `.nvmrc`)
+- Node.js >=22.23.4 and <23 (see `.nvmrc` and `.node-version`)
 - pnpm 8+
 - Docker (for local development)
 
