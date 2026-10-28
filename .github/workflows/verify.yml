@@ -27,6 +27,8 @@ jobs:
       image: node:22-bookworm
       options: --init --cpus 2 --memory 6g
     timeout-minutes: 45
+    env:
+      COREPACK_HOME: /tmp/Agentic-Consciousness-3dprintprice-corepack
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v4
         with:
