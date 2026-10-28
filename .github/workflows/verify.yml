@@ -39,9 +39,8 @@ jobs:
       - name: Enable corepack (writable COREPACK_HOME)
         run: |
           mkdir -p "${COREPACK_HOME:-/tmp/corepack}"
-          # Image may already ship a pnpm shim at /usr/local/bin; ignore EEXIST.
-          corepack enable || true
-          corepack install || true
+          corepack enable
+          corepack install
       - name: Run the checks
         run: bash .github/scripts/verify.sh
 
@@ -73,15 +72,14 @@ jobs:
       - name: Enable corepack (writable COREPACK_HOME)
         run: |
           mkdir -p "${COREPACK_HOME:-/tmp/corepack}"
-          # Image may already ship a pnpm shim at /usr/local/bin; ignore EEXIST.
-          corepack enable || true
-          corepack install || true
+          corepack enable
+          corepack install
       - name: Frozen install and build
         shell: bash
         run: |
           set -euo pipefail
           unset VERCEL_ENV VERCEL VERCEL_TOKEN || true
-          corepack enable || true
+          corepack enable
           corepack prepare pnpm@10.30.2 --activate
           corepack pnpm install --frozen-lockfile
           corepack pnpm build
