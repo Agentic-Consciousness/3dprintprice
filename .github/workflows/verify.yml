@@ -39,7 +39,8 @@ jobs:
       - name: Enable corepack (writable COREPACK_HOME)
         run: |
           mkdir -p "${COREPACK_HOME:-/tmp/corepack}"
-          corepack enable
+          # Image may already ship a pnpm shim at /usr/local/bin; ignore EEXIST.
+          corepack enable || true
           corepack install
       - name: Run the checks
         run: bash .github/scripts/verify.sh
@@ -72,7 +73,8 @@ jobs:
       - name: Enable corepack (writable COREPACK_HOME)
         run: |
           mkdir -p "${COREPACK_HOME:-/tmp/corepack}"
-          corepack enable
+          # Image may already ship a pnpm shim at /usr/local/bin; ignore EEXIST.
+          corepack enable || true
           corepack install
       - name: Frozen install and build
         shell: bash
