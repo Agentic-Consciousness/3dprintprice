@@ -47,6 +47,7 @@ jobs:
       options: --init --cpus 2 --memory 6g
     timeout-minutes: 60
     env:
+      COREPACK_HOME: /tmp/Agentic-Consciousness-3dprintprice-corepack
       CI: '1'
       NEXT_TELEMETRY_DISABLED: '1'
       # Safe CI fixtures only — no real secrets.
@@ -66,5 +67,7 @@ jobs:
         run: |
           set -euo pipefail
           unset VERCEL_ENV VERCEL VERCEL_TOKEN || true
-          corepack enable && corepack prepare pnpm@10.30.2 --activate && pnpm install --frozen-lockfile
-          pnpm build
+          corepack enable
+          corepack prepare pnpm@10.30.2 --activate
+          corepack pnpm install --frozen-lockfile
+          corepack pnpm build
