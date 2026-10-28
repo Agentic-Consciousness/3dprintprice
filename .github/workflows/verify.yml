@@ -36,6 +36,11 @@ jobs:
       - name: Trust the checked-out workspace
         # The job container's user differs from the checkout's owner, so git refuses to read it otherwise.
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Enable corepack (writable COREPACK_HOME)
+        run: |
+          mkdir -p "${COREPACK_HOME:-/tmp/corepack}"
+          corepack enable
+          corepack install
       - name: Run the checks
         run: bash .github/scripts/verify.sh
 
@@ -64,6 +69,11 @@ jobs:
           persist-credentials: false
       - name: Trust the checked-out workspace
         run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Enable corepack (writable COREPACK_HOME)
+        run: |
+          mkdir -p "${COREPACK_HOME:-/tmp/corepack}"
+          corepack enable
+          corepack install
       - name: Frozen install and build
         shell: bash
         run: |
