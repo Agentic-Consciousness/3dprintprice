@@ -11,21 +11,21 @@
   },
   "dependencies": {
     "@printforge/shared": "workspace:*",
-    "next": "15.5.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "recharts": "^2.10.0",
-    "three": "^0.160.0",
-    "zod": "^3.22.4"
+    "next": "15.5.28",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.15.4",
+    "three": "^0.160.1",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@types/node": "^20.11.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
+    "@types/node": "^20.19.43",
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
     "@types/three": "^0.160.0",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "15.5.21",
-    "typescript": "^5.3.0"
+    "eslint": "^8.57.1",
+    "eslint-config-next": "15.5.28",
+    "typescript": "^5.9.3"
   },
   "engines": {
     "node": ">=22.23.4 <23"
